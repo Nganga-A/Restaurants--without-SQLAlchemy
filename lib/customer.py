@@ -9,11 +9,11 @@ class Customer:
         self.reviews = [] # List to store reviews associated with this customer
         Customer.CUSTOMERS.append(self) # Add the instance to the list of all customers
 
-    @property
+    
     def given_name(self):
         return self._given_name #Return given name of customer
         
-    @property
+    
     def family_name(self):
         return self._family_name #Return family name of customer
         

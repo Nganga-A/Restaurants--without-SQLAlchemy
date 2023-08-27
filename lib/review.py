@@ -7,8 +7,8 @@ class Review:
         self._rating = rating
         Review.REVIEWS.append(self) # Add the review instance to the list of all reviews
         restaurant.reviews.append(self)  # Add the review to the restaurant's list of reviews
-    
-    @property
+        customer.add_review(self)  # Automatically associate the review with the customer
+
     def get_rating(self):
         return self._rating  # Return the rating of the review
     

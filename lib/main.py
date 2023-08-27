@@ -9,10 +9,12 @@ restaurant1 = Restaurant("Choma Zone")
 restaurant2 = Restaurant("Smocha Zone")
 
 #REVIEWS SAMPLE DATA
-customer1.add_review(restaurant1, 50)
-customer1.add_review(restaurant2, 43)
-customer2.add_review(restaurant1, 75)
-customer2.add_review(restaurant2, 71)
+# Creating Review instances
+review1 = Review(customer1, restaurant1, 4)
+review2 = Review(customer2, restaurant1, 14)
+review3 = Review(customer1, restaurant2, 8)
+review4 = Review(customer2, restaurant2, 7)
+
 
 # Print all customers
 print("All Customers: ")
@@ -29,7 +31,8 @@ for restaurant in Restaurant.all():
 print() #To add new line
 print("Average Star Ratings: ")
 for restaurant in Restaurant.all():
-    print(f"{restaurant.name}: {restaurant.average_star_rating()}")
+    avg_rating = restaurant.average_star_rating()
+    print(f"{restaurant.name}: {avg_rating}")
 
 # Find customers by given name
 print() #To add new line
@@ -38,3 +41,14 @@ print(f"Customers with given name '{given_name}':")
 matching_customers = Customer.find_all_by_given_name(given_name)
 for customer in matching_customers:
     print(customer.full_name)
+
+
+
+# Print list of reviews for each customer
+print()
+print("List of Reviews for Each Customer:")
+for customer in Customer.all():
+    print(f"{customer.full_name}'s Reviews:")
+    for review in customer.reviews:
+        print(f"  - Restaurant: {review.restaurant().name}")
+        print(f"    Rating: {review.get_rating()}")

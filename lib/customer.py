@@ -25,16 +25,16 @@ class Customer:
     def all(cls):
         return cls.CUSTOMERS #returns a list of all customer instances
         
-    def add_review(self,restaurant, review):
+    def add_review(self, review):
         self.reviews.append(review) # Add the review to this customer's list of reviews
         
-    def num_review(self):
-        return len(self.reviews) # Number of reviews by this customer
+    def num_review(self, restaurant):
+        return len([review for review in self.reviews if review.restaurant() == restaurant]) # Number of reviews by this customer
         
     @classmethod
     def find_by_name(cls,name):
         for customer in cls.CUSTOMERS:
-            if customer.full_name() == name:
+            if customer.full_name == name:
                 return customer # Find and return a customer instance by full name
             return None # Return None if customer not found
 

@@ -10,7 +10,7 @@ class Restaurant:
         return self.name # Return the name of the restaurant
     
     def get_reviews(self):
-        return self._reviews # Return the reviews associated with this restaurant
+        return self.reviews # Return the reviews associated with this restaurant
     
     @classmethod
     def all (cls):

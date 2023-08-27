@@ -1,5 +1,4 @@
-# Restaurants--without-SQLAlchemy 
-![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+# Restaurants--without-SQLAlchemy  ![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 A simple review system for restaurants, customers and their reviews
 
 ## Overview

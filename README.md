@@ -55,18 +55,93 @@ The system allows you to:
 ## Example Usage
 
 ```python
-from customer import Customer
-from restaurant import Restaurant
+from customer import Customer #imports Customer class from customer.py file
+from restaurant import Restaurant 
 from review import Review
 
-# Create instances
-customer1 = Customer("John", "Doe")
+#SAMPLE  DATA
+customer1 = Customer("john","Doe")
+customer2 = Customer("Abed", "Doe")
 restaurant1 = Restaurant("Choma Zone")
-review1 = Review(customer1, restaurant1, 4)
+restaurant2 = Restaurant("Smocha Zone")
 
-# Calculate average star rating
-avg_rating = restaurant1.average_star_rating()
-print(f"Average Rating for {restaurant1.name}: {avg_rating}")
+#REVIEWS SAMPLE DATA
+# Creating Review instances
+review1 = Review(customer1, restaurant1, 4)
+review2 = Review(customer2, restaurant1, 14)
+review3 = Review(customer1, restaurant2, 8)
+review4 = Review(customer2, restaurant2, 7)
+
+
+# Print all customers
+print("All Customers: ")
+for customer in Customer.all():
+    print(customer.full_name)
+
+# Print all restaurants
+print() #To add new line
+print("All Restaurants: ")
+for restaurant in Restaurant.all():
+    print(restaurant.name)
+
+# Print average star rating for each restaurant
+print() #To add new line
+print("Average Star Ratings: ")
+for restaurant in Restaurant.all():
+    avg_rating = restaurant.average_star_rating()
+    print(f"{restaurant.name}: {avg_rating}")
+
+# Find customers by given name
+print() #To add new line
+given_name = "Abed"
+print(f"Customers with given name '{given_name}':")
+matching_customers = Customer.find_all_by_given_name(given_name)
+for customer in matching_customers:
+    print(customer.full_name)
+
+
+
+# Print list of reviews for each customer
+print()
+print("List of Reviews for Each Customer:")
+for customer in Customer.all():
+    print(f"{customer.full_name}'s Reviews:")
+    for review in customer.reviews:
+        print(f"  - Restaurant: {review.restaurant().name}")
+        print(f"    Rating: {review.get_rating()}")
+
+```
+## Results from Example Usage
+
+```python
+
+All Customers: 
+john Doe
+Abed Doe
+
+All Restaurants: 
+Choma Zone
+Smocha Zone
+
+Average Star Ratings: 
+Choma Zone: 9.0
+Smocha Zone: 7.5
+
+Customers with given name 'Abed':
+Abed Doe
+
+List of Reviews for Each Customer:
+john Doe's Reviews:
+  - Restaurant: Choma Zone
+    Rating: 4
+  - Restaurant: Smocha Zone
+    Rating: 8
+Abed Doe's Reviews:
+  - Restaurant: Choma Zone
+    Rating: 14
+  - Restaurant: Smocha Zone
+    Rating: 7
+
 ```
 
 ## Contribution

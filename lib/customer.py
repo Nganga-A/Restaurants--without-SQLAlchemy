@@ -15,18 +15,17 @@ class Customer:
         
     @property
     def family_name(self):
-        return self.family_name #Return family name of customer
+        return self._family_name #Return family name of customer
         
     @property
     def full_name(self):
-        return f"{self.given_name} {self.family_name}" #Return full name of customer
+        return f"{self._given_name} {self._family_name}" #Return full name of customer
         
     @classmethod
     def all(cls):
         return cls.CUSTOMERS #returns a list of all customer instances
         
-    def add_review(self, restaurant, rating):
-        review = Review(self, restaurant,rating) # Create a new review associated with this customer
+    def add_review(self,restaurant, review):
         self.reviews.append(review) # Add the review to this customer's list of reviews
         
     def num_review(self):

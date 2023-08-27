@@ -6,18 +6,15 @@ class Restaurant:
         self.reviews = [] # List to store reviews associated with this restaurant
         Restaurant.RESTAURANTS.append(self)  # Add the instance to the list of all restaurants
 
-    def name (self):
+    def get_name(self):
         return self.name # Return the name of the restaurant
     
-    def reviews (self):
-        return self.reviews # Return the reviews associated with this restaurant
+    def get_reviews(self):
+        return self._reviews # Return the reviews associated with this restaurant
     
     @classmethod
     def all (cls):
         return cls.RESTAURANTS ## Return all restaurant instances created
-
-    def reviews (self):
-        return self.reviews # Return the reviews associated with this 
     
     def customers (self):
         return list({review.customer() for review in self.reviews})
@@ -26,6 +23,6 @@ class Restaurant:
     def average_star_rating(self):
         if not self.reviews:
             return 0
-        total_rating = sum(review.rating() for review in self.reviews)
+        total_rating = sum(review.get_rating() for review in self.reviews)
         return total_rating / len(self.reviews)
         # Calculate and return the average star rating of the restaurant

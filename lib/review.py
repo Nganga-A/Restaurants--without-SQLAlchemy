@@ -5,7 +5,7 @@ class Review:
         self._customer = customer
         self._restaurant = restaurant
         self._rating = rating
-        Review.REVIEWS.append(self)
+        Review.REVIEWS.append(self) # Add the review instance to the list of all reviews
         customer.add_review(restaurant, rating) # Associate the review with customer and restaurant
         restaurant.reviews.append(self)  # Add the review to the restaurant's list of reviews
     

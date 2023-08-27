@@ -4,7 +4,7 @@ class Restaurant:
     def __init__ (self, name):
         self.name = name
         self.reviews = [] # List to store reviews associated with this restaurant
-        Restaurant.all_restaurants.append(self)  # Add the instance to the list of all restaurants
+        Restaurant.RESTAURANTS.append(self)  # Add the instance to the list of all restaurants
 
     def name (self):
         return self.name # Return the name of the restaurant

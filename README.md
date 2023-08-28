@@ -99,6 +99,12 @@ matching_customers = Customer.find_all_by_given_name(given_name)
 for customer in matching_customers:
     print(customer.full_name)
 
+#Print number of Reviews for Each customer 
+print() #To add new line
+print("Number of Reviews for Each customer")
+for customer in customer.all():
+    num_reviews = customer.num_review()
+    print(f"{customer.full_name}'s Reviews: {num_reviews}")
 
 
 # Print list of reviews for each customer
@@ -109,6 +115,7 @@ for customer in Customer.all():
     for review in customer.reviews:
         print(f"  - Restaurant: {review.restaurant().name}")
         print(f"    Rating: {review.get_rating()}")
+
 
 ```
 ## Results from Example Usage
@@ -129,6 +136,10 @@ Smocha Zone: 7.5
 
 Customers with given name 'Abed':
 Abed Doe
+
+Number of Reviews for Each customer
+john Doe's Reviews: 2
+Abed Doe's Reviews: 2
 
 List of Reviews for Each Customer:
 john Doe's Reviews:

@@ -9,7 +9,7 @@ class Customer:
         self.reviews = [] # List to store reviews associated with this customer
         Customer.CUSTOMERS.append(self) # Add the instance to the list of all customers
 
-    
+    @property
     def given_name(self):
         return self._given_name #Return given name of customer
         
@@ -28,8 +28,8 @@ class Customer:
     def add_review(self, review):
         self.reviews.append(review) # Add the review to this customer's list of reviews
         
-    def num_review(self, restaurant):
-        return len([review for review in self.reviews if review.restaurant() == restaurant]) # Number of reviews by this customer
+    def num_review(self):
+        return len(self.reviews) # Number of reviews by this customer
         
     @classmethod
     def find_by_name(cls,name):
@@ -40,5 +40,5 @@ class Customer:
 
     @classmethod
     def find_all_by_given_name(cls,name):
-        return [customer for customer in cls.CUSTOMERS if customer.given_name == name]
+        return [customer for customer in cls.CUSTOMERS if customer._given_name == name]
         #Finds and returns all customers instances with a specific given name

@@ -42,7 +42,7 @@ matching_customers = Customer.find_all_by_given_name(given_name)
 for customer in matching_customers:
     print(customer.full_name)
 
-# 
+#Print number of Reviews for Each customer  
 print() #To add new line
 print("Number of Reviews for Each customer")
 for customer in customer.all():
